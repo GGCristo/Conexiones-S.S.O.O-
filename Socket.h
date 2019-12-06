@@ -12,6 +12,8 @@
 #include <netinet/ip.h>
 #include <unistd.h>
 
+#include "Message_struct.h"
+
 class Socket {
 private:
   int fd_;
@@ -23,4 +25,5 @@ public:
    */
   Socket (const sockaddr_in&);
   ~Socket();
+  void send_to(const Message& message, const sockaddr_in& address);
 };
