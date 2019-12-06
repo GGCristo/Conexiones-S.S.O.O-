@@ -1,3 +1,4 @@
+#pragma region 
 /**
  * @file Netcp.cpp
  * @author Cristo_García_González (cristo.code@gmail.com)
@@ -8,6 +9,7 @@
  * @copyright Copyright (c) 2019
  * 
  */
+#pragma endregion
 
 #include <iostream>
 #include <sys/types.h>
