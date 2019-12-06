@@ -25,5 +25,6 @@ public:
    */
   Socket (const sockaddr_in&);
   ~Socket();
-  void send_to(const Message& message, const sockaddr_in& address);
+  void send_to(const Message&, const sockaddr_in&);
+  void receive_from(Message&, sockaddr_in&);
 };
