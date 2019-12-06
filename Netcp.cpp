@@ -2,7 +2,7 @@
  * @file Netcp.cpp
  * @author Cristo_García_González (cristo.code@gmail.com)
  * @brief Primer acercamiento a conexiones (S.S.O.O)
- * @version 0.1
+ * @version 0.2
  * @date 2019-12-04
  * 
  * @copyright Copyright (c) 2019
@@ -13,13 +13,14 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <netinet/ip.h>
 #include <arpa/inet.h>
-
+#include "Socket.h"
 sockaddr_in make_ip_address(const std::string& ip_address, int port);
 // int inet_aton(const char *cp, struct in_addr *inp);
 int main(){
 
-
+  
 
     return 0;
 }
