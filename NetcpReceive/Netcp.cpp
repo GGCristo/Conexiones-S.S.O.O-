@@ -28,11 +28,20 @@ int main(){
     Message message{};
     sockaddr_in direccion = make_ip_address("127.0.0.1",25000);
     sockaddr_in cliente{};
-    Socket conexion (direccion);
-    while (true) {
-      conexion.receive_from (message, cliente);
-      std::cout << message.text.data();
+    Socket *conexion;
+    try 
+    {
+      conexion = new Socket (direccion);
     }
+    catch (std::system_error &e) 
+    {
+      std::cerr << e.what();
+      return 1;
+    }
+    while (true) {
+      conexion -> receive_from (message, cliente);
+    }
+    delete conexion;
     return 0;
 }
 
