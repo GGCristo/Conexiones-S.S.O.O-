@@ -31,12 +31,17 @@
 sockaddr_in make_ip_address (const std::string&, int);
 // std::setlocale(LC_MESSAGES, "es_ES.utf8");
 int main() {
-    // std::setlocale(LC_MESSAGES, "es_ES.utf8");
+
     const sockaddr_in direccion = make_ip_address("127.0.0.1",0);
     const sockaddr_in servidor = make_ip_address("127.0.0.1",25000);
     Socket *conexion;
+    try {
     conexion = new Socket (direccion);
-   
+    }
+    catch (std::system_error &e) {
+      std::cerr << e.what();
+      return 1;
+    }
     Message message;
     
     int file = open ("/home/cristo/Escritorio/Netcp/NetcpSend/prueba.txt", 0000);
@@ -44,10 +49,11 @@ int main() {
       std::cout << message.text.data() << std::endl;
       try 
       {
-        conexion->send_to (message, servidor);
+        conexion -> send_to (message, servidor);
       } 
       catch (std::system_error &e) 
       {
+        std::cerr << e.what();
         return 1;
       }
     } 
